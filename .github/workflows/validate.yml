@@ -15,13 +15,15 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
-      - name: Unit tests (pure domain logic, no device)
+      - name: Unit tests (no real Zalo connection)
         run: npm run test:unit
       - name: TypeScript validation
         run: npm run typecheck
-      - name: Validate Expo config
+      - name: Assert prototype release remains blocked
+        run: npm run release:check
+      - name: Validate Expo configuration
         run: npx expo config --json > /tmp/zalo-hub-expo-config.json
-      - name: Check iOS JavaScript bundle (not a native build)
+      - name: Check iOS JS bundle (not signed native binary)
         run: npx expo export --platform ios --output-dir /tmp/zalo-hub-ios-bundle
-      - name: Check Android JavaScript bundle (not a native build)
+      - name: Check Android JS bundle (not signed native binary)
         run: npx expo export --platform android --output-dir /tmp/zalo-hub-android-bundle
