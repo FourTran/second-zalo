@@ -24,6 +24,10 @@ async function copyText(text) {
 }
 
 function render() {
+  const isKnownIphoneRedirect = state.platform==='iphone-safari' || state.platform==='iphone-chrome';
+  document.getElementById('manual-test-steps').hidden=isKnownIphoneRedirect;
+  document.getElementById('manual-url-box').hidden=isKnownIphoneRedirect;
+  document.getElementById('manual-test-hint').hidden=isKnownIphoneRedirect;
   accounts.replaceChildren();
   for(const account of ACCOUNTS) {
     const card=document.createElement('div');card.className='account';

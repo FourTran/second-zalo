@@ -24,7 +24,7 @@ export function createState(platform='iphone-safari') {
   if (!PLATFORM_IDS.has(platform)) throw new Error('Invalid platform');
   return {
     platform,
-    observations:Object.fromEntries(ACCOUNTS.map(label=>[label,'not-tested'])),
+    observations:Object.fromEntries(ACCOUNTS.map(label=>[label, label==='B' && (platform==='iphone-safari'||platform==='iphone-chrome') ? 'store-redirect':'not-tested'])),
   };
 }
 export function selectPlatform(_state,platform) {

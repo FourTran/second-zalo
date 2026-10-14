@@ -31,3 +31,13 @@ test('rejects unsupported account labels, outcomes, and devices',()=>{
  assert.throws(()=>recordOutcome(createState(),'B','authenticated-and-verified'),/Invalid/);
  assert.throws(()=>createState('unknown-device'),/Invalid/);
 });
+
+test('known iPhone B redirect is pre-recorded rather than requesting repeat testing',()=>{
+ for(const platform of ['iphone-safari','iphone-chrome']) {
+  const state=createState(platform);
+  assert.equal(state.observations.B,'store-redirect');
+  assert.equal(state.observations.C,'not-tested');
+  assert.match(formatReport(state),/Redirected to app or store/);
+ }
+ assert.equal(createState('desktop-browser').observations.B,'not-tested');
+});

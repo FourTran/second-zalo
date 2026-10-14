@@ -54,3 +54,5 @@ npm run web:serve
 Read [the web-first test plan](docs/feasibility/WEB_FIRST_TEST_PLAN.md). Nonproduction Cloudflare Worker preview: https://zalo-hub-web-feasibility-preview.tranvantu4444.workers.dev/ (API reports upload and workers.dev activation; browser reachability not independently confirmed). It hosts only the static manual test lab — never enter personal Zalo credentials into it.
 
 The deployed preview can be regenerated offline via `npm run web:build-worker`; only `web/feasibility` assets are served. Production hosting or Zalo integration is not enabled.
+
+Web-first correction: iPhone Safari and Chrome already redirect to App Store; do not repeat the same chat.zalo.me test. The lab now records the known iPhone result and identifies the unverified desktop-session approach as the next experiment.

@@ -57,3 +57,6 @@ Every future thread must read this file and verify current GitHub PR/CI state.
 - PR code CI [run #38622258320](https://github.com/FourTran/second-zalo/actions/runs/38622258320) passed including web tests, TypeScript, Expo config, release guard and both mobile JS exports; device-browser verification still pending. iOS/Android website use on physical devices NOT TESTED.
 
 - Preview address: https://zalo-hub-web-feasibility-preview.tranvantu4444.workers.dev/ — public static diagnostic only. No real Zalo login, credential handling, push, APIs or message forwarding.
+
+### Correction — 2026-10-15 (web prototype)
+The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPhone, although Safari/Chrome App Store redirects were already observed. The revised web lab pre-records that user-reported result for Account B and hides the pointless iPhone Copy URL action. Next hypothesis: an explicitly permitted, user-controlled cloud desktop browser session, not yet provisioned or verified. This remains a feasibility prototype, not a working Zalo integration.
