@@ -10,7 +10,8 @@
     "ios": "expo start --ios",
     "typecheck": "tsc --noEmit",
     "test:unit": "node --experimental-strip-types --test tests/*.test.mjs",
-    "release:check": "node --experimental-strip-types scripts/release-readiness.mjs"
+    "release:check": "node --experimental-strip-types scripts/release-readiness.mjs",
+    "test:web": "node --test web/feasibility/tests/*.test.mjs"
   },
   "dependencies": {
     "expo": "~54.0.0",
@@ -27,4 +28,4 @@
     "typescript": "~5.9.2",
     "@types/react": "~19.1.0"
   }
-}
+}\n

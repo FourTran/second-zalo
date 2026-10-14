@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none';">
+  <title>Zalo Hub — Web Feasibility Lab</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">ZH</span><span>Zalo Hub <small>Feasibility Lab</small></span></div>
+      <span class="pill">DEMO · NO ZALO ACCESS</span>
+    </header>
+
+    <section class="hero" aria-labelledby="headline">
+      <p class="eyebrow">WEB-FIRST FEASIBILITY TEST · V1</p>
+      <h1 id="headline">Can we use a second personal account from a browser?</h1>
+      <p>This website checks the <strong>manual browser experience</strong> before we invest in more mobile development. It never signs into Zalo for you, reads messages, or accesses the official Zalo app.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel" aria-labelledby="test-title">
+        <div class="panel-head"><div><p class="eyebrow">01 / ENVIRONMENT</p><h2 id="test-title">Choose the device you are testing</h2></div><span class="step">1 of 3</span></div>
+        <label class="field-label" for="platform">Device &amp; browser</label>
+        <select id="platform" aria-label="Test device">
+          <option value="iphone-safari">iPhone · Safari</option>
+          <option value="iphone-chrome">iPhone · Chrome</option>
+          <option value="android-chrome">Android · Chrome</option>
+          <option value="desktop-browser">Desktop · Chrome / Edge</option>
+        </select>
+        <p class="hint">Changing platforms resets the observations. Each platform needs its own separate test.</p>
+
+        <div class="panel-head split-top"><div><p class="eyebrow">02 / MANUAL TEST</p><h2>Check official Zalo Web</h2></div><span class="step">2 of 3</span></div>
+        <div class="instructions">
+          <div><span class="dot">1</span><span>Copy the official web address with the button below.</span></div>
+          <div><span class="dot">2</span><span>Paste it manually into a browser address bar. Do not use an unofficial login website.</span></div>
+          <div><span class="dot">3</span><span>Return here and record what happened for the account you intended to use.</span></div>
+        </div>
+        <div class="urlbox"><code>https://chat.zalo.me/</code><button id="copy-url" type="button" class="button secondary">Copy URL</button></div>
+        <p class="hint">If the browser redirects to the App Store or native Zalo, stop that test. Do not force login or modify browser identity. A browser tab is <strong>not</strong> an isolated account profile.</p>
+        <div id="accounts" class="accounts" aria-live="polite"></div>
+      </section>
+
+      <aside class="panel aside" aria-labelledby="result-title">
+        <div class="panel-head"><div><p class="eyebrow">03 / REPORT</p><h2 id="result-title">Results &amp; next decision</h2></div><span class="step">3 of 3</span></div>
+        <div class="status"><span class="status-icon" aria-hidden="true">!</span><div><strong>Real Zalo integration: NOT VERIFIED</strong><p>Recording a manual observation does not authenticate an account in Zalo Hub.</p></div></div>
+        <div class="metrics"><div><strong id="tested-count">0 / 3</strong><small>Account observations</small></div><div><strong>0</strong><small>Verified live sessions</small></div></div>
+        <p class="field-label">Anonymous diagnostic report</p>
+        <textarea id="report" readonly rows="9" aria-label="Diagnostic report"></textarea>
+        <div class="button-row"><button id="copy-report" type="button" class="button primary">Copy report</button><button id="reset" type="button" class="button subtle">Reset</button></div>
+        <p class="hint">No accounts, messages, cookies, passwords, or observations are uploaded or saved. Closing or refreshing the page clears all results.</p>
+        <div class="decision">
+          <strong>What this can prove</strong>
+          <p>Only what you saw in an ordinary browser. We still must validate independently signed-in B/C sessions and a permitted real-message event source before building actual notifications.</p>
+        </div>
+      </aside>
+    </div>
+    <footer>
+      <span>Second Zalo · Cross-platform research prototype</span>
+      <span>Account A / native Zalo: completely outside scope</span>
+    </footer>
+    <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+  </main>
+</body>
+</html>

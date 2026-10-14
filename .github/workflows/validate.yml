@@ -17,7 +17,7 @@ jobs:
         run: npm install --ignore-scripts --no-audit --no-fund
       - name: Unit tests (no real Zalo connection)
         run: npm run test:unit
-      - name: TypeScript validation
+      - name: Web feasibility unit tests\n        run: npm run test:web\n      - name: TypeScript validation
         run: npm run typecheck
       - name: Assert prototype release remains blocked
         run: npm run release:check
