@@ -10,3 +10,6 @@
 - ADR-017: Synthetic inbox and internal-only account navigation, no push.
 - ADR-018: Public metadata allowlist, fixed safe diagnostics and feature flags.
 - ADR-019: M8 release gate is hard-blocked in prototype even if all evidence flags are asserted; no production build/deploy workflows.
+
+- ADR-020: Add separate static mobile-first website for **manual**, anonymized browser feasibility observations. No Zalo iframe, proxy, session sharing, browser fingerprint changes or credentials.
+- ADR-021: Website experiments do not satisfy M2/M3/M5 device/session/event gates and are not automatically deployed.

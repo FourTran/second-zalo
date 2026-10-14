@@ -43,3 +43,12 @@ The release check intentionally reports **BLOCKED** because no supported persona
 Follow [device test plan](docs/project/DEVICE_BUILD_TEST_PLAN.md), [M2 feasibility matrix](docs/feasibility/M2_DEVICE_MATRIX.md), [M5 event gate](docs/feasibility/M5_EVENT_SOURCE_GATE.md) and [M8 release runbook](docs/release/M8_BETA_AND_RELEASE.md) before proposing a beta.
 
 **Passing JavaScript bundles is NOT a signed iPhone/Android application build.** Every supported integration must be independently tested on each platform.
+
+## Web-first manual feasibility lab (separate from the native app)
+A lightweight, responsive web test page is in [web/feasibility](web/feasibility). It checks **manual browser observations only**, stores no user data, never embeds or scripts Zalo Web, and does not authenticate any personal account.
+```sh
+npm run test:web
+npm run web:serve
+# Then open http://127.0.0.1:4173 in a desktop browser
+```
+Read [the web-first test plan](docs/feasibility/WEB_FIRST_TEST_PLAN.md). A public test URL requires a separate preview deployment decision; source code in GitHub does not make the page live.

@@ -48,3 +48,10 @@ Official native Zalo app and Account A are completely **OUT OF SCOPE**. No nativ
 Do not expand live-message or notification code until critical M2 and M5 feasibility evidence exists. Once user is ready for manual device testing, follow `docs/project/DEVICE_BUILD_TEST_PLAN.md`, `docs/feasibility/M2_DEVICE_MATRIX.md`, and `docs/release/M8_BETA_AND_RELEASE.md`. Log outcomes platform-by-platform; if client or event source is unsupported, record NO-GO/PIVOT rather than a fake complete milestone.
 
 Every future thread must read this file and verify current GitHub PR/CI state.
+
+## Web-first test proposal — PR #13 (2026-10-15)
+- New web/feasibility/ static mobile-first diagnostic. No Expo or Apple Developer account needed to load after separately approved preview hosting.
+- Users manually open the official chat.zalo.me address in their own browser and record **self-reported only** observations by account and device.
+- The website has **no Zalo session**, cross-site API, iframe, notification listener, credentials or cookie access; cannot bypass iOS App Store redirects.
+- No hosting/deployment authorized or completed. This is a test harness, **not** a substitute for issue #10 supported-client login and issue #11 incoming message source.
+- Tests and PR CI pending. iOS/Android website use on physical devices NOT TESTED.
