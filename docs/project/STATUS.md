@@ -1,25 +1,11 @@
-# Canonical Project Status
-**As of:** 2026-10-14
-**Stage:** M1 automation implemented (device gate deferred); M2 offline research and WebView diagnostic implementation underway on stacked feature branch.
-**Source topology:** [PR #1](https://github.com/FourTran/second-zalo/pull/1) contains M1, still OPEN / UNMERGED. M2 is stacked on the M1 branch and cannot merge directly into `main` until M1 is merged.
+# Canonical Project Status — 2026-10-14
 
-| Area | Status | Actual evidence |
-|---|---|---|
-| M1 product docs, Expo starter, UI, tests/CI | CODE COMPLETE IN PR #1 | [CI 38560954813](https://github.com/FourTran/second-zalo/actions/runs/38560954813) PASS; 7 unit tests and JS bundle exports only |
-| M1 Cloudflare synthetic-only Worker contract | CODE ONLY; NOT DEPLOYED | Added in PR #1 with dev-flag/token gates and D1 synthetic-event schema; no live personal Zalo ingestion |
-| M1.6 device builds / Expo/Apple setup | DEFERRED MANUAL | User asked to skip required manual steps; no signed iOS/Android binaries |
-| M2.1 Zalo documented client/API review | OFFLINE RESEARCH | `docs/feasibility/M2_OFFLINE_RESEARCH.md`, links to official sources |
-| M2.2/2.3 diagnostic WebView code | IMPLEMENTED, DEVICE-UNTESTED | `app/account-b.tsx` and `src/feasibility/webNavigationPolicy.ts` |
-| M2.4 login/manual chat | UNVERIFIED — MANUAL | Neither OS has a verified authenticated Zalo session |
-| M2.5 persistence, B/C isolation | UNVERIFIED — MANUAL | No isolated sessions implemented |
-| M2.6 authorized remote browser fallback | RESEARCH ONLY | No remote service or real browser provisioned |
-| M2.7 GO/NO-GO | UNDECIDED | No real supported-client evidence; do not declare milestone completed |
-| Real personal-message event source | NOT VERIFIED | OA webhook documentation does not establish personal chat events |
-| Real message ingestion, push and sends | DISABLED | No production integration; synthetic UI only |
-| Native official Zalo app / Account A | NEVER TOUCH | Remains outside project scope |
+M1 [PR #1](https://github.com/FourTran/second-zalo/pull/1): automated foundation code; CI passed; real iOS/Android builds deferred. M2 [PR #2](https://github.com/FourTran/second-zalo/pull/2): offline feasibility research and safe diagnostics; CI passed; real-client login unknown.
 
-## Next eligible actions
-1. Check M2 CI and review stacked PR (no merges without explicit approval).
-2. Proceed with safe offline architecture as needed, but DO NOT advance dependent real-message features without M2 feasibility.
-3. When user chooses to handle manual tasks, revisit EAS signing, iOS/Android physical WebView login and chat, B/C isolation, and real-event permission validation separately.
-4. Keep PR #1 as M1 source-of-truth branch until merged; rebase/retarget M2 afterward.
+M3 [PR #3](https://github.com/FourTran/second-zalo/pull/3): account domain implementation and unit tests added on branch stacked on M2. Pending CI. **No real accounts authenticated.** Session Adapter default refuses to connect. In-memory metadata only. Real B/C isolation, restart persistence, and manual client login remain UNVERIFIED.
+
+M4: NOT STARTED at time of this update. Product UI may only offer supported manual messaging once M2 supported-client and M3 isolation gates pass. No actual real-message send is enabled.
+
+Official native Zalo + Account A: **completely out of scope**. Production push and message ingestion disabled.
+
+Next: verify M3 CI, review M3 PR, then design M4 account-specific UX without fake live message features. PR merge order: #1 -> #2 -> #3. No merges without explicit approval.
