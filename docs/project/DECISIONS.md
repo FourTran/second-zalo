@@ -1,16 +1,15 @@
-# Architecture Decision Log
-| ID | Decision |
-|---|---|
-| ADR-001 | React Native + Expo + TypeScript for iOS/Android |
-| ADR-002 | Official Zalo app / Account A completely untouched |
-| ADR-003 | B/C/D target multiple independent accounts, feasibility UNKNOWN |
-| ADR-004 | Pluggable session-adapter interface; default adapter fail-closed |
-| ADR-005 | No undocumented personal APIs, credentials/cookie extraction or bypasses |
-| ADR-006 | No real sends/ingestion/production push until evidence and approval |
-| ADR-007 | iOS and Android feasibility gates independent |
-| ADR-008 | EAS developer accounts and physical builds deferred |
-| ADR-009 | In-memory synthetic registry in app; no real credentials |
-| ADR-010 | M2 WebView diagnostic blocks non-official redirects |
-| ADR-011 | M1 synthetic-only Worker remains undeployed |
-| ADR-014 | M3 metadata-only account manager and per-account lifecycle lock |
-| ADR-015 | M4 messaging screens fail closed until supported chat viewer, authenticated session, independent storage and per-platform capabilities are confirmed |
+# Architecture Decisions (as of 2026-10-15)
+- ADR-001: React Native + Expo + TypeScript cross-platform.
+- ADR-002: Official Zalo app and Account A must remain untouched.
+- ADR-003: Companion B/C/D login goals are unverified.
+- ADR-004: Adapter-based sessions with fail-closed default.
+- ADR-005: Undocumented APIs, credential/cookie extraction and security bypass prohibited.
+- ADR-006: Production real sends, ingestion and push disabled.
+- ADR-007: Separate platform feasibility gate for iOS and Android.
+- ADR-008: Signing/devices deferred, not passed.
+- ADR-009: Mock accounts never imply real authentication.
+- ADR-010: M2 WebView diagnostic blocks native-app redirects.
+- ADR-011: Synthetic-only development Worker code not deployed.
+- ADR-014: M3 lifecycle per-account locks and metadata-only recovery.
+- ADR-015: M4 chat navigation requires real authenticated supported client and isolation.
+- ADR-016: M5 real personal events hard-disabled; synthetic schema excludes private message data.
