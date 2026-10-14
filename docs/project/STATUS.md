@@ -1,23 +1,11 @@
-# Second Zalo — Project Status
-Updated: 2026-10-15. Canonical branch: `main`.
+# Zalo Hub Canonical Status — 2026-10-15
 
-## GitHub state
-- M1 PR #1, M2 PR #2, M3 PR #3, M4 PR #4: **MERGED** (code foundations).
-- M5: synthetic-only event source contract, in PR #5. Live source **NOT VERIFIED**.
+M1–M4 source PRs **#1–#4 merged into main**, but product acceptance gates remain unresolved (signed device builds, normal Zalo login/read/reply, independent B/C persistence and cookie isolation).
 
-## Acceptance by milestone
-| Milestone | Implemented | Remaining gate |
-|---|---|---|
-| M1 | Expo app, CI, experimental D1 Worker source | Signed device builds deferred |
-| M2 | Research, safe WebView diagnostics | Supported login / messaging on physical iOS and Android |
-| M3 | Account manager, fail-closed adapter, tests | Real B/C independent authentication, storage isolation, restart |
-| M4 | Account-specific navigation, access gate | Permitted live chat, manual replies, attachments |
-| M5 | Synthetic event contracts and deduplication | **Supported real personal-account event source absent** |
-| M6 | Not started | APNs/FCM + actual authorized event source |
-| M7 | Not started | Security review / device reliability |
-| M8 | Not started | Expo/Apple accounts, builds, compliance and beta |
+M5 PR #5 — **synthetic-only event contract**, real personal-Zalo event source NOT verified; product gate BLOCKED.
+M6 PR #6 — **local synthetic inbox/routing**, no APNs/FCM or background notifications; product gate BLOCKED.
+M7 and M8 — awaiting safe CI/security/release gate foundations.
 
-Production sends, real-message ingestion and notification delivery DISABLED. Official Zalo app and Account A NEVER TOUCHED. Skipped manual steps are not passes.
+**Safety:** Native Zalo and Account A untouched. No passwords, cookies, real personal message ingestion, automation, production push or sends. No release readiness until per-platform feasibility and manual approvals.
 
-## Next
-Implement M6–M8 offline safety scaffolding. Review CI and merge through PRs with code/evidence. Do not claim product launched or complete until every critical real-world gate is proven.
+Next: CI for PR #6, M7/M8 release security gates; merge in order #5 → #6 → #7 → #8 only after CI passes.
