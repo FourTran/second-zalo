@@ -2,21 +2,22 @@
 
 **Canonical repository:** https://github.com/FourTran/second-zalo
 
-Standalone cross-platform iOS/Android React Native/Expo prototype exploring independently signed-in personal Zalo accounts B, C, D… in a companion application. **The official native Zalo app and Account A are completely out of scope.**
+Standalone iOS/Android React Native/Expo prototype targeting multiple independent personal Zalo accounts B/C/D…, subject to strict supported-client feasibility gates. The official native Zalo app and Account A are completely outside scope.
 
-> **Not a working Zalo integration.** Login, multi-account session isolation, real-message events, and push notifications remain unverified. The only current notification controls are explicitly synthetic.
+> **NOT a working personal Zalo integration.** No verified Zalo login, real messaging access, session isolation, incoming events or production push. UI records are synthetic only.
 
-Start here: [Project HQ](docs/project/PROJECT_HQ.md) · [Status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Agent rules](AGENTS.md) · [ChatGPT project instructions](docs/project/CHATGPT_PROJECT_INSTRUCTIONS.md).
+Project docs: [HQ](docs/project/PROJECT_HQ.md) · [Status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Agent rules](AGENTS.md).
 
-## Start locally
+## Development
 ```sh
 npm install
+npm run test:unit
 npm run typecheck
 npx expo start
 ```
+M1.6 real iOS/Android builds require postponed developer account setup. See [device build plan](docs/project/DEVICE_BUILD_TEST_PLAN.md).
 
-## Install iOS and Android development builds
-Use [M1.6 development-build runbook](docs/project/DEVICE_BUILD_TEST_PLAN.md). `eas.json` contains development-only profiles; install the build on physical test devices before assessing WebView behavior. The `expo-dev-client` package and provisional app identifiers are configured, but EAS project registration, credentials and signed builds have not yet been completed.
+## M2 WebView diagnostic
+Read [offline feasibility report](docs/feasibility/M2_OFFLINE_RESEARCH.md) and [platform test matrix](docs/feasibility/M2_DEVICE_MATRIX.md). The experimental Account B WebView is started manually and categorizes public-domain navigations only, never full URLs or credentials. It blocks App Store and external redirects rather than touching native Zalo. **Running the diagnostic does not prove login, multi-account support or notification feasibility.**
 
-## Project safety
-No automated real messaging, personal message interception, production push, or undocumented personal Zalo APIs. Use GitHub PRs to update verified status, and record device-specific evidence rather than claiming mock functionality is real.
+No real personal-message event ingestion, automatic replies, forwarding or production push are enabled. Physical device findings must be recorded separately for iOS and Android.

@@ -1,17 +1,18 @@
 # Architecture Decision Log
-
 | Date | ID | Decision | Rationale |
 |---|---|---|---|
-| 2026-10-14 | ADR-001 | React Native + Expo + TypeScript | One cross-platform mobile codebase |
-| 2026-10-14 | ADR-002 | Official native Zalo completely untouched | Strict user-approved product boundary |
-| 2026-10-14 | ADR-003 | Multiple companion accounts B/C/D… targeted | Product goal; feasibility not proven |
-| 2026-10-14 | ADR-004 | Browser/session adapter abstraction | Avoid coupling UI to unverified WebView transport |
-| 2026-10-14 | ADR-005 | No undocumented personal APIs or credential extraction | Security, integrity, compliance |
-| 2026-10-14 | ADR-006 | No real sends/ingestion/push before approval | Avoid unauthorized messaging or misleading claims |
-| 2026-10-14 | ADR-007 | Separate iOS and Android feasibility gates | Platform behavior differs |
-| 2026-10-14 | ADR-008 | Development-only EAS internal profiles, no production profile | Avoid premature store releases |
-| 2026-10-14 | ADR-009 | In-memory demo registry and fail-closed session adapter | Enable offline UI and unit tests without implying real login or cookie isolation |
-| 2026-10-14 | ADR-010 | Defer EAS/Apple onboarding; continue offline M1/M2 research | User will create developer accounts later |
+| 2026-10-14 | ADR-001 | React Native + Expo + TypeScript | Shared mobile codebase |
+| 2026-10-14 | ADR-002 | Official native Zalo completely untouched | User-set security/product boundary |
+| 2026-10-14 | ADR-003 | Multiple B/C/D… independent accounts targeted | Goal, NOT verified capability |
+| 2026-10-14 | ADR-004 | Pluggable session adapter; transport unverified | Preserve alternative architecture options |
+| 2026-10-14 | ADR-005 | No undocumented personal messaging APIs or credentials/cookies | Security and compliance |
+| 2026-10-14 | ADR-006 | Real sends, ingestion and push disabled until approved | Safety and honest reporting |
+| 2026-10-14 | ADR-007 | Separate iOS/Android GO/NO-GO decisions | Different WebView storage and background behavior |
+| 2026-10-14 | ADR-008 | EAS development-only profiles | Avoid production release |
+| 2026-10-14 | ADR-009 | In-memory demo registry and fail-closed adapter | Never equate mock profiles with authenticated sessions |
+| 2026-10-14 | ADR-010 | Developer account/device checks deferred | User instructed to skip manual steps |
+| 2026-10-14 | ADR-011 | Diagnostic WebView exposes only origin classifications, blocks non-Zalo schemes | No credential interception or accidental native-app launch |
+| 2026-10-14 | ADR-012 | M2 is a stacked PR targeting M1 feature branch | Do not mix research experiments into M1 before review |
 
-## Open decisions
-Remote browser cost/permitted usage; real account storage isolation; authorized event source; push delivery; public distribution and branding; provisional native ID `com.fourtran.secondzalo.lab` must be verified before signing.
+## Unresolved
+No verified WebView login, independent persistent profile isolation or personal event source. Remote browser permitted usage/cost unverified. Provisional app ID must be confirmed before signing.

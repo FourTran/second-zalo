@@ -1,27 +1,25 @@
 # Canonical Project Status
 **As of:** 2026-10-14
-**Stage:** M1 Foundation; M1.4 contract/demo registry work in open PR #1. EAS account and Apple Developer membership deferred by user.
-**Open PR:** https://github.com/FourTran/second-zalo/pull/1 (not merged).
+**Stage:** M1 automation implemented (device gate deferred); M2 offline research and WebView diagnostic implementation underway on stacked feature branch.
+**Source topology:** [PR #1](https://github.com/FourTran/second-zalo/pull/1) contains M1, still OPEN / UNMERGED. M2 is stacked on the M1 branch and cannot merge directly into `main` until M1 is merged.
 
-| Item | State | Evidence / limitation |
+| Area | Status | Actual evidence |
 |---|---|---|
-| React Native / Expo foundation | In PR #1 | Code on feature branch; no physical device builds |
-| M1.1 PRD | Draft | `docs/product/PRD.md` |
-| M1.4 platform/session contracts | Added in PR #1 | `src/core/sessionAdapter.ts`; all live adapters explicitly unavailable |
-| M1.4 demo account registry | Added in PR #1 | `src/core/demoAccountRegistry.ts`; B/C/D entries labeled synthetic; no authentication or cookies |
-| M1.5 prior CI | PASS | [Run 38534173692](https://github.com/FourTran/second-zalo/actions/runs/38534173692): dependency install, TypeScript, Expo config, both JS exports |
-| M1.5 new unit tests | PASS local and CI | 7/7 Node 22 tests; [CI run 38560701036](https://github.com/FourTran/second-zalo/actions/runs/38560701036) succeeded on code commit `1d8341d` including TypeScript, Expo config, and both JS bundles |
-| M1.6 developer accounts | DEFERRED | Expo/Apple setup postponed by user |
-| M1.6 physical iOS / Android builds | NOT RUN | Requires signing and actual devices |
-| Cloudflare D1 | Created previously | Experimental `zalo-personal-unified` APAC database; not integrated |
-| Account B Zalo client | UNKNOWN | iPhone browsers redirected to App Store; in-app WebView untested |
-| B/C real independent login/storage | NOT IMPLEMENTED | Demo registry cannot authenticate or isolate cookies |
-| Authorized incoming Zalo events | NOT VERIFIED | No personal webhook proven |
-| Real sends, ingestion and push | DISABLED | Demo alerts only |
-| Official native Zalo app | UNTOUCHED BY DESIGN | Account A outside product |
+| M1 product docs, Expo starter, UI, tests/CI | CODE COMPLETE IN PR #1 | [CI 38560954813](https://github.com/FourTran/second-zalo/actions/runs/38560954813) PASS; 7 unit tests and JS bundle exports only |
+| M1 Cloudflare metadata/event server integration | NOT IMPLEMENTED | Existing experimental D1 is not connected; no production ingestion allowed |
+| M1.6 device builds / Expo/Apple setup | DEFERRED MANUAL | User asked to skip required manual steps; no signed iOS/Android binaries |
+| M2.1 Zalo documented client/API review | OFFLINE RESEARCH | `docs/feasibility/M2_OFFLINE_RESEARCH.md`, links to official sources |
+| M2.2/2.3 diagnostic WebView code | IMPLEMENTED, DEVICE-UNTESTED | `app/account-b.tsx` and `src/feasibility/webNavigationPolicy.ts` |
+| M2.4 login/manual chat | UNVERIFIED — MANUAL | Neither OS has a verified authenticated Zalo session |
+| M2.5 persistence, B/C isolation | UNVERIFIED — MANUAL | No isolated sessions implemented |
+| M2.6 authorized remote browser fallback | RESEARCH ONLY | No remote service or real browser provisioned |
+| M2.7 GO/NO-GO | UNDECIDED | No real supported-client evidence; do not declare milestone completed |
+| Real personal-message event source | NOT VERIFIED | OA webhook documentation does not establish personal chat events |
+| Real message ingestion, push and sends | DISABLED | No production integration; synthetic UI only |
+| Native official Zalo app / Account A | NEVER TOUCH | Remains outside project scope |
 
-## Next actions
-1. Review existing PR #1; verified source CI passed on `1d8341d`. Merge only with explicit approval.
-2. Begin M2.1 supported-client documentation and restrictions research without requiring Expo/Apple accounts.
-3. Defer M1.6 real device build until Expo/Apple enrollment is available; document iOS and Android outcomes separately.
-4. No real account session, personal message event, or push functionality may be claimed without device/authorization evidence.
+## Next eligible actions
+1. Check M2 CI and review stacked PR (no merges without explicit approval).
+2. Proceed with safe offline architecture as needed, but DO NOT advance dependent real-message features without M2 feasibility.
+3. When user chooses to handle manual tasks, revisit EAS signing, iOS/Android physical WebView login and chat, B/C isolation, and real-event permission validation separately.
+4. Keep PR #1 as M1 source-of-truth branch until merged; rebase/retarget M2 afterward.
