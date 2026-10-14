@@ -1,20 +1,23 @@
-# Zalo Hub — Canonical Project Status
-Updated: 2026-10-15
+# Zalo Hub — Canonical Status (2026-10-15)
 
-**Merged:** PRs #1–#4 (M1–M4 code foundations). Product features still gated by real-world Zalo feasibility.
-**Open in stack:** PR #5 (synthetic events), #6 (synthetic inbox), #7 (security guardrails).
+GitHub source completed for offline/testing scope of M1–M8. **NOT a functioning multi-personal-Zalo product.**
 
-| M | Implementation | Product acceptance |
+| Milestone | Engineering status | Product status |
 |---|---|---|
-| 1 | Foundation / CI code merged | Real device builds DEFERRED |
-| 2 | Browser feasibility diagnostic merged | Normal Zalo login/manual messaging UNVERIFIED |
-| 3 | Account metadata and lifecycle merged | Real B/C isolation & persistence UNVERIFIED |
-| 4 | Account-scoped UI merged | Real manual chats / attachments NOT AVAILABLE |
-| 5 | Strict synthetic events only | Real personal Zalo event source NOT VERIFIED |
-| 6 | Local synthetic inbox / app navigation | No real APNs/FCM or locked-device tests |
-| 7 | Secure metadata and fail-closed feature flags | Threat review/device penetration and reliability tests PENDING |
-| 8 | Pending release gating | No signed builds, app-store approval, beta or production deployment |
+| M1 | Expo/React Native starter, CI, backend test Worker | Signed iOS & Android builds DEFERRED |
+| M2 | Research and diagnostic WebView | Real supported Zalo login/manual chat UNKNOWN |
+| M3 | B/C/D metadata account manager, adapter contracts/tests | Independent authenticated sessions UNVERIFIED |
+| M4 | Account-scoped screens and fail-closed chat policy | Real reading/replies/attachments UNAVAILABLE |
+| M5 | Strict synthetic-only event ledger | Real permitted personal event source NOT FOUND/VERIFIED |
+| M6 | Local synthetic inbox and account routing | No real APNs/FCM, background push or deep chat links |
+| M7 | Public metadata security policy + threat model | Physical device security/performance reviews PENDING |
+| M8 | CI release blocker + beta runbook | NO signed builds, app-store testing or production approval |
 
-Native Zalo remains untouched; no real Zalo authentication or messaging has been proven; no live push/sends/ingestion. **Do not equate merged code with product-complete milestones.**
+### GitHub PRs
+M1–M4 PRs #1–#4 merged. M5–M8 PRs #5–#8 queued for CI/review/merge. Verify current GitHub PR state; this file must reflect latest as changes occur.
 
-Next: complete CI, merge PRs #5–#7 sequentially, implement M8 release readiness checklist. All manual prerequisites remain deferred per user direction.
+### Restrictions
+Native Zalo app/Account A completely untouched. Do not collect Zalo passwords or cookies, use private APIs, or enable real message ingestion, sends or production pushes. No production deployment. Manual user actions were deferred, not passed.
+
+### Next action
+Resolve actual M2 supported-client feasibility and M5 permitted incoming event source before claiming an MVP. Resume EAS/Apple/Android iOS signing and physical-device testing when authorized.
