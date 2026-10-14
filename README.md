@@ -1,22 +1,26 @@
 # Second Zalo — Zalo Hub
 
-**GitHub:** https://github.com/FourTran/second-zalo
+**Canonical repository:** https://github.com/FourTran/second-zalo
 
-A standalone React Native + Expo iOS/Android prototype for potential independent personal Zalo accounts B/C/D… (all real integrations **UNVERIFIED**). Official native Zalo and Account A stay completely untouched.
+Standalone iOS/Android React Native/Expo prototype targeting multiple independent personal Zalo accounts B/C/D…, subject to strict supported-client feasibility gates. The official native Zalo app and Account A are completely outside scope.
 
-> **No working Zalo personal-account integration, no real messaging/event ingestion or notifications.** Demo records are synthetic only.
+> **NOT a working personal Zalo integration.** No verified Zalo login, real messaging access, session isolation, incoming events or production push. UI records are synthetic only.
 
-Project documentation: [HQ](docs/project/PROJECT_HQ.md) · [Status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Developer instructions](AGENTS.md).
+Project docs: [HQ](docs/project/PROJECT_HQ.md) · [Status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Agent rules](AGENTS.md).
 
+## Development
 ```sh
 npm install
 npm run test:unit
 npm run typecheck
 npx expo start
 ```
+M1.6 real iOS/Android builds require postponed developer account setup. See [device build plan](docs/project/DEVICE_BUILD_TEST_PLAN.md).
 
-## Backend foundation
-`src/backend/syntheticWorker.ts` is a **NOT DEPLOYED** Cloudflare-compatible Worker prototype that accepts only synthetic dev events with flag + development environment + bearer secret. See `backend/migrations/0001_synthetic_events.sql` for a metadata-only fixture schema. Do not configure an externally reachable Worker or apply production migrations without explicit approval.
+## M2 WebView diagnostic
+Read [offline feasibility report](docs/feasibility/M2_OFFLINE_RESEARCH.md) and [platform test matrix](docs/feasibility/M2_DEVICE_MATRIX.md). The experimental Account B WebView is started manually and categorizes public-domain navigations only, never full URLs or credentials. It blocks App Store and external redirects rather than touching native Zalo. **Running the diagnostic does not prove login, multi-account support or notification feasibility.**
 
-## Device builds
-See [M1.6 build runbook](docs/project/DEVICE_BUILD_TEST_PLAN.md). Developer accounts and physical-device tests were deferred. No real account session isolation, login, read/reply or notification claim is valid until evidence has been collected separately on iOS and Android.
+No real personal-message event ingestion, automatic replies, forwarding or production push are enabled. Physical device findings must be recorded separately for iOS and Android.
+
+## M1 synthetic backend
+The M1 foundation now also includes a **not deployed** development-only Cloudflare Worker source and D1 synthetic-event schema. See `src/backend/syntheticWorker.ts` and `backend/migrations/0001_synthetic_events.sql` on the M1 branch. Real account ingestion is always disabled.
