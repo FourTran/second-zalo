@@ -16,7 +16,9 @@ export function routeSyntheticNotice(input: unknown): InternalAccountDestination
 }
 export class SyntheticInbox {
   private readonly items: SyntheticInboxItem[]=[];
-  constructor(private readonly maxItems=50) {
+  private readonly maxItems: number;
+  constructor(maxItems=50) {
+    this.maxItems = maxItems;
     if(!Number.isInteger(maxItems)||maxItems<1||maxItems>200)throw new Error('Invalid inbox limit');
   }
   add(input: unknown): boolean {

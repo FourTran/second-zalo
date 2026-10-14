@@ -34,7 +34,9 @@ export function acceptSyntheticNotice(value: unknown): SyntheticNotice | null {
 export class SyntheticEventLedger {
   private readonly seen = new Set<string>();
   private readonly latest: SyntheticNotice[] = [];
-  constructor(private readonly capacity = 128) {
+  private readonly capacity: number;
+  constructor(capacity = 128) {
+    this.capacity = capacity;
     if (!Number.isInteger(capacity) || capacity < 1 || capacity > 1024) throw new Error('Invalid capacity');
   }
   ingest(value: unknown): 'accepted' | 'duplicate' | 'rejected' {
