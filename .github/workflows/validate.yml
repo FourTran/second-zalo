@@ -19,6 +19,8 @@ jobs:
         run: npm run test:unit
       - name: Web feasibility unit tests
         run: npm run test:web
+      - name: Build nonproduction static Worker bundle
+        run: npm run web:build-worker && node --check dist/zalo-hub-feasibility-worker.js
       - name: TypeScript validation
         run: npm run typecheck
       - name: Assert prototype release remains blocked

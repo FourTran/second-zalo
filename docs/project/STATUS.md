@@ -53,5 +53,7 @@ Every future thread must read this file and verify current GitHub PR/CI state.
 - New web/feasibility/ static mobile-first diagnostic. No Expo or Apple Developer account needed to load after separately approved preview hosting.
 - Users manually open the official chat.zalo.me address in their own browser and record **self-reported only** observations by account and device.
 - The website has **no Zalo session**, cross-site API, iframe, notification listener, credentials or cookie access; cannot bypass iOS App Store redirects.
-- No hosting/deployment authorized or completed. This is a test harness, **not** a substitute for issue #10 supported-client login and issue #11 incoming message source.
-- Tests and PR CI pending. iOS/Android website use on physical devices NOT TESTED.
+- Nonproduction Cloudflare Worker preview **uploaded and workers.dev enabled** by API; external page accessibility could not be independently verified because the checking environment has no DNS access. This is a test harness, **not** a substitute for issue #10 supported-client login and issue #11 incoming message source.
+- PR code CI [run #38622258320](https://github.com/FourTran/second-zalo/actions/runs/38622258320) passed including web tests, TypeScript, Expo config, release guard and both mobile JS exports; device-browser verification still pending. iOS/Android website use on physical devices NOT TESTED.
+
+- Preview address: https://zalo-hub-web-feasibility-preview.tranvantu4444.workers.dev/ — public static diagnostic only. No real Zalo login, credential handling, push, APIs or message forwarding.

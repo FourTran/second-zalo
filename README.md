@@ -51,4 +51,6 @@ npm run test:web
 npm run web:serve
 # Then open http://127.0.0.1:4173 in a desktop browser
 ```
-Read [the web-first test plan](docs/feasibility/WEB_FIRST_TEST_PLAN.md). A public test URL requires a separate preview deployment decision; source code in GitHub does not make the page live.
+Read [the web-first test plan](docs/feasibility/WEB_FIRST_TEST_PLAN.md). Nonproduction Cloudflare Worker preview: https://zalo-hub-web-feasibility-preview.tranvantu4444.workers.dev/ (API reports upload and workers.dev activation; browser reachability not independently confirmed). It hosts only the static manual test lab — never enter personal Zalo credentials into it.
+
+The deployed preview can be regenerated offline via `npm run web:build-worker`; only `web/feasibility` assets are served. Production hosting or Zalo integration is not enabled.
