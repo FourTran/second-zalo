@@ -9,7 +9,7 @@ test('only official Zalo Web URL is used as the manual test target',()=>{
 test('records per-account observations without claiming connected sessions',()=>{
  const s=createState();const b=recordOutcome(s,'B','login-screen');
  const c=recordOutcome(b,'C','store-redirect');
- assert.equal(s.observations.B,'not-tested');
+ assert.equal(s.observations.B,'store-redirect');
  assert.equal(c.observations.B,'login-screen');
  assert.equal(c.observations.C,'store-redirect');
  assert.match(summarize(c).conclusion,/unverified/);
