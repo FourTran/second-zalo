@@ -21,3 +21,6 @@ M1.6 real iOS/Android builds require postponed developer account setup. See [dev
 Read [offline feasibility report](docs/feasibility/M2_OFFLINE_RESEARCH.md) and [platform test matrix](docs/feasibility/M2_DEVICE_MATRIX.md). The experimental Account B WebView is started manually and categorizes public-domain navigations only, never full URLs or credentials. It blocks App Store and external redirects rather than touching native Zalo. **Running the diagnostic does not prove login, multi-account support or notification feasibility.**
 
 No real personal-message event ingestion, automatic replies, forwarding or production push are enabled. Physical device findings must be recorded separately for iOS and Android.
+
+## M1 synthetic backend
+The M1 foundation now also includes a **not deployed** development-only Cloudflare Worker source and D1 synthetic-event schema. See `src/backend/syntheticWorker.ts` and `backend/migrations/0001_synthetic_events.sql` on the M1 branch. Real account ingestion is always disabled.

@@ -11,8 +11,9 @@
 | 2026-10-14 | ADR-008 | EAS development-only profiles | Avoid production release |
 | 2026-10-14 | ADR-009 | In-memory demo registry and fail-closed adapter | Never equate mock profiles with authenticated sessions |
 | 2026-10-14 | ADR-010 | Developer account/device checks deferred | User instructed to skip manual steps |
-| 2026-10-14 | ADR-011 | Diagnostic WebView exposes only origin classifications, blocks non-Zalo schemes | No credential interception or accidental native-app launch |
-| 2026-10-14 | ADR-012 | M2 is a stacked PR targeting M1 feature branch | Do not mix research experiments into M1 before review |
+| 2026-10-14 | ADR-011 | Cloudflare Worker source disabled unless dev flag + bearer token | Safe M1 backend foundation; no live service deployment |
+| 2026-10-14 | ADR-012 | Diagnostic WebView exposes only origin classifications, blocks non-Zalo schemes | No credential interception or accidental native-app launch |
+| 2026-10-14 | ADR-013 | M2 is a stacked PR targeting M1 feature branch | Do not mix research experiments into M1 before review |
 
 ## Unresolved
 No verified WebView login, independent persistent profile isolation or personal event source. Remote browser permitted usage/cost unverified. Provisional app ID must be confirmed before signing.

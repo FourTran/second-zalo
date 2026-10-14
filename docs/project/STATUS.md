@@ -6,7 +6,7 @@
 | Area | Status | Actual evidence |
 |---|---|---|
 | M1 product docs, Expo starter, UI, tests/CI | CODE COMPLETE IN PR #1 | [CI 38560954813](https://github.com/FourTran/second-zalo/actions/runs/38560954813) PASS; 7 unit tests and JS bundle exports only |
-| M1 Cloudflare metadata/event server integration | NOT IMPLEMENTED | Existing experimental D1 is not connected; no production ingestion allowed |
+| M1 Cloudflare synthetic-only Worker contract | CODE ONLY; NOT DEPLOYED | Added in PR #1 with dev-flag/token gates and D1 synthetic-event schema; no live personal Zalo ingestion |
 | M1.6 device builds / Expo/Apple setup | DEFERRED MANUAL | User asked to skip required manual steps; no signed iOS/Android binaries |
 | M2.1 Zalo documented client/API review | OFFLINE RESEARCH | `docs/feasibility/M2_OFFLINE_RESEARCH.md`, links to official sources |
 | M2.2/2.3 diagnostic WebView code | IMPLEMENTED, DEVICE-UNTESTED | `app/account-b.tsx` and `src/feasibility/webNavigationPolicy.ts` |
