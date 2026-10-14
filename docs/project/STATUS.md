@@ -10,7 +10,7 @@
 | M1.4 platform/session contracts | Added in PR #1 | `src/core/sessionAdapter.ts`; all live adapters explicitly unavailable |
 | M1.4 demo account registry | Added in PR #1 | `src/core/demoAccountRegistry.ts`; B/C/D entries labeled synthetic; no authentication or cookies |
 | M1.5 prior CI | PASS | [Run 38534173692](https://github.com/FourTran/second-zalo/actions/runs/38534173692): dependency install, TypeScript, Expo config, both JS exports |
-| M1.5 new unit tests | 7/7 local Node 22 tests PASSED | CI for updated commit still needs to complete |
+| M1.5 new unit tests | PASS local and CI | 7/7 Node 22 tests; [CI run 38560701036](https://github.com/FourTran/second-zalo/actions/runs/38560701036) succeeded on code commit `1d8341d` including TypeScript, Expo config, and both JS bundles |
 | M1.6 developer accounts | DEFERRED | Expo/Apple setup postponed by user |
 | M1.6 physical iOS / Android builds | NOT RUN | Requires signing and actual devices |
 | Cloudflare D1 | Created previously | Experimental `zalo-personal-unified` APAC database; not integrated |
@@ -21,7 +21,7 @@
 | Official native Zalo app | UNTOUCHED BY DESIGN | Account A outside product |
 
 ## Next actions
-1. Complete updated PR #1 CI and review; merge only with explicit approval.
+1. Review existing PR #1; verified source CI passed on `1d8341d`. Merge only with explicit approval.
 2. Begin M2.1 supported-client documentation and restrictions research without requiring Expo/Apple accounts.
 3. Defer M1.6 real device build until Expo/Apple enrollment is available; document iOS and Android outcomes separately.
 4. No real account session, personal message event, or push functionality may be claimed without device/authorization evidence.
