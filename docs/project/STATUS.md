@@ -29,6 +29,11 @@ Last code PR head [#8 CI run 38616559996](https://github.com/FourTran/second-zal
 
 **State: automated/offline implementation merged; none of M1–M8 is proven fully product-complete.** Never infer supported Zalo personal integrations or releases from merged code or synthetic UI.
 
+## Open acceptance blocker issues
+- [#10 — Real Zalo login, manual chat and B/C isolation](https://github.com/FourTran/second-zalo/issues/10)
+- [#11 — Authorized incoming personal-message event source](https://github.com/FourTran/second-zalo/issues/11)
+- [#12 — Real APNs/FCM, security and beta release](https://github.com/FourTran/second-zalo/issues/12)
+
 ## Critical blockers in dependency order
 1. User-controlled legitimate Zalo Web or alternative client login and manual chat works on iOS and Android.
 2. Independently persistent sessions B/C, logout isolation and privacy protection verified on both devices.
