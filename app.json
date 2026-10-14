@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Zalo Hub Lab",
+    "slug": "second-zalo",
+    "scheme": "secondzalo",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fourtran.secondzalo.lab"
+    },
+    "android": {
+      "package": "com.fourtran.secondzalo.lab"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
