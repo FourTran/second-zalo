@@ -1,5 +1,3 @@
-import {RELEASE_FEATURES} from '../security/securityPolicy';
-
 /** A successful JS bundle or synthetic test is NEVER evidence of live Zalo capability. */
 export const MANDATORY_RELEASE_GATES = Object.freeze([
   'ios-signed-device-build',
@@ -41,6 +39,6 @@ export function assessReleaseReadiness(evidence: readonly GateEvidence[] = []): 
     status:'blocked',
     missing:MANDATORY_RELEASE_GATES.filter(g=>!accepted.has(g)),
     cause:'real-zalo-integration-not-implemented',
-    liveFeaturesEnabled:RELEASE_FEATURES.productionPush,
+    liveFeaturesEnabled:false,
   };
 }
