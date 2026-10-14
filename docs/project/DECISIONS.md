@@ -9,6 +9,7 @@
 | 2026-10-14 | ADR-005 | No undocumented personal APIs or credential extraction | Security, integrity, compliance |
 | 2026-10-14 | ADR-006 | No real sends/ingestion/push before approval | Prevent unauthorized messaging or misleading claims |
 | 2026-10-14 | ADR-007 | Separate iOS and Android feasibility gates | Platform behavior differs |
+| 2026-10-14 | ADR-008 | Development-only EAS internal profiles, no production profile | Physical-device validation without accidentally enabling store releases |
 
 ## Open decisions
-Remote-browser cost/security/permitted usage; account profile isolation strategy; production event source; push delivery provider; public distribution and branding.
+Remote-browser cost/security/permitted usage; account profile isolation strategy; production event source; push delivery provider; public distribution and branding. Provisional native app ID `com.fourtran.secondzalo.lab` must be confirmed before signing.

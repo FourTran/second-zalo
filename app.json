@@ -6,9 +6,12 @@
     "version": "0.1.0",
     "orientation": "portrait",
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.fourtran.secondzalo.lab"
     },
-    "android": {},
+    "android": {
+      "package": "com.fourtran.secondzalo.lab"
+    },
     "plugins": [
       "expo-router"
     ],

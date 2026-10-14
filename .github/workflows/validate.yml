@@ -19,3 +19,7 @@ jobs:
         run: npm run typecheck
       - name: Validate Expo config
         run: npx expo config --json > /tmp/zalo-hub-expo-config.json
+      - name: Check iOS JavaScript bundle (not a native build)
+        run: npx expo export --platform ios --output-dir /tmp/zalo-hub-ios-bundle
+      - name: Check Android JavaScript bundle (not a native build)
+        run: npx expo export --platform android --output-dir /tmp/zalo-hub-android-bundle
