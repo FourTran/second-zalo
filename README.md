@@ -1,26 +1,45 @@
 # Second Zalo — Zalo Hub
 
-**Canonical repository:** https://github.com/FourTran/second-zalo
+**Repository:** https://github.com/FourTran/second-zalo
 
-Standalone iOS/Android React Native/Expo prototype targeting multiple independent personal Zalo accounts B/C/D…, subject to strict supported-client feasibility gates. The official native Zalo app and Account A are completely outside scope.
+A standalone React Native + Expo + TypeScript **iOS/Android feasibility prototype** for managing additional independently authenticated personal Zalo accounts B, C, D, etc.
 
-> **NOT a working personal Zalo integration.** No verified Zalo login, real messaging access, session isolation, incoming events or production push. UI records are synthetic only.
+**The official native Zalo app and Account A must remain completely untouched.**
 
-Project docs: [HQ](docs/project/PROJECT_HQ.md) · [Status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Agent rules](AGENTS.md).
+> **Not a working personal Zalo integration.** GitHub PRs #1–#8 for the offline implementation foundations are merged. Real authentication, isolated sessions, message access, incoming events, and real notifications have NOT been validated.
 
-## Development
+## Project source of truth
+[Project HQ](docs/project/PROJECT_HQ.md) · [Current status](docs/project/STATUS.md) · [Roadmap](docs/project/ROADMAP.md) · [Technical decisions](docs/project/DECISIONS.md) · [Risks](docs/project/RISKS.md) · [Agent instructions](AGENTS.md).
+
+## Local development
 ```sh
 npm install
 npm run test:unit
 npm run typecheck
+npm run release:check
 npx expo start
 ```
-M1.6 real iOS/Android builds require postponed developer account setup. See [device build plan](docs/project/DEVICE_BUILD_TEST_PLAN.md).
 
-## M2 WebView diagnostic
-Read [offline feasibility report](docs/feasibility/M2_OFFLINE_RESEARCH.md) and [platform test matrix](docs/feasibility/M2_DEVICE_MATRIX.md). The experimental Account B WebView is started manually and categorizes public-domain navigations only, never full URLs or credentials. It blocks App Store and external redirects rather than touching native Zalo. **Running the diagnostic does not prove login, multi-account support or notification feasibility.**
+The release check intentionally reports **BLOCKED** because no supported personal Zalo integration has passed the critical device gates.
 
-No real personal-message event ingestion, automatic replies, forwarding or production push are enabled. Physical device findings must be recorded separately for iOS and Android.
+## What code exists
+- Standalone iOS/Android Expo app, simulation-only account dashboard and synthetic alerts.
+- Strictly user-triggered Zalo Web compatibility diagnostic; blocks native-app redirects and never extracts credentials or cookies.
+- Account metadata lifecycle, isolated operation guards, fail-closed adapter contracts.
+- Account-scoped screens, manual chat eligibility policy (no live chat viewer).
+- Synthetic event ledger and synthetic-only local notification inbox, no live message source.
+- Security metadata validation, hard-disabled production features, release blocker and CI.
+- An undeployed **development-only synthetic Cloudflare Worker source**, with no production credentials or real personal-message ingestion.
 
-## M1 synthetic backend
-The M1 foundation now also includes a **not deployed** development-only Cloudflare Worker source and D1 synthetic-event schema. See `src/backend/syntheticWorker.ts` and `backend/migrations/0001_synthetic_events.sql` on the M1 branch. Real account ingestion is always disabled.
+**No production deployment, real personal messages, automated replies, push delivery or app publishing** is enabled.
+
+## Critical blockers
+- M1 real iOS/Android device signing and builds were deferred.
+- M2 legitimate normal personal Zalo login and messaging in our WebView/alternative remains unverified.
+- M3 independent B/C authenticated session isolation is unverified.
+- M5 permitted personal-account incoming message event source has not been verified.
+- M6 real background APNs/FCM delivery depends on M5 and physical tests.
+
+Follow [device test plan](docs/project/DEVICE_BUILD_TEST_PLAN.md), [M2 feasibility matrix](docs/feasibility/M2_DEVICE_MATRIX.md), [M5 event gate](docs/feasibility/M5_EVENT_SOURCE_GATE.md) and [M8 release runbook](docs/release/M8_BETA_AND_RELEASE.md) before proposing a beta.
+
+**Passing JavaScript bundles is NOT a signed iPhone/Android application build.** Every supported integration must be independently tested on each platform.
