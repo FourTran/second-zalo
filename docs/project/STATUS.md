@@ -1,11 +1,19 @@
 # Canonical Project Status — 2026-10-14
 
-M1 [PR #1](https://github.com/FourTran/second-zalo/pull/1): automated foundation code; CI passed; real iOS/Android builds deferred. M2 [PR #2](https://github.com/FourTran/second-zalo/pull/2): offline feasibility research and safe diagnostics; CI passed; real-client login unknown.
+Project source topology: **[M1 PR #1](https://github.com/FourTran/second-zalo/pull/1)** → **[M2 PR #2](https://github.com/FourTran/second-zalo/pull/2)** → **[M3 PR #3](https://github.com/FourTran/second-zalo/pull/3)** → **M4 PR pending**. All are stacked and UNMERGED. No production deployment.
 
-M3 [PR #3](https://github.com/FourTran/second-zalo/pull/3): account domain implementation and unit tests added on branch stacked on M2. Pending CI. **No real accounts authenticated.** Session Adapter default refuses to connect. In-memory metadata only. Real B/C isolation, restart persistence, and manual client login remain UNVERIFIED.
+| Milestone | Status | Evidence / blockers |
+|---|---|---|
+| M1 Foundation | Automated foundation implemented | GitHub CI passed; physical signed iOS/Android builds & Expo/Apple enrollment deferred |
+| M2 Feasibility | Offline research + safe diagnostic implemented | Real Zalo WebView login/manual chat/permitted usage UNVERIFIED on both OS |
+| M3 Sessions | Offline account lifecycle implemented on M3 PR | Default adapter fail-closed, tests; real B/C auth, storage isolation, restart/recovery unverified |
+| M4 Messaging | Account-specific demo UX + access gating added on M4 branch | No actual chat, send/reply, attachments or deep linking; dependent on M2/M3 |
+| M5 Events | Not started | No verified personal incoming-message source |
+| M6 Notifications | Not started | Real push disabled |
+| M7 Security | Planned | Further audits/device tests needed |
+| M8 Release | Planned | No signed builds/publishing |
 
-M4: NOT STARTED at time of this update. Product UI may only offer supported manual messaging once M2 supported-client and M3 isolation gates pass. No actual real-message send is enabled.
+Manual tasks skipped at user request; skipped ≠ passed. No passwords, Zalo message bodies, extracted cookies or native app interactions. Official Zalo and Account A completely untouched.
 
-Official native Zalo + Account A: **completely out of scope**. Production push and message ingestion disabled.
-
-Next: verify M3 CI, review M3 PR, then design M4 account-specific UX without fake live message features. PR merge order: #1 -> #2 -> #3. No merges without explicit approval.
+## Next
+Run M4 CI, ensure M3 CI fixed and green; review stacked PRs. Merge only with explicit approval (#1 → #2 → #3 → #4). Product completion of M3/M4 is blocked pending real supported-client gates and separate platform proof.
