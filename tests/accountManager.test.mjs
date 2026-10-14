@@ -101,5 +101,5 @@ test('serializes operations on the same account',async()=>{
   const a=await manager('android',adapter); await a.add('B');
   const pending=a.connect('hub-B');
   await assert.rejects(a.remove('hub-B'),/already in progress/);
-  resolve();await pending; assert.equal(a.get('hub-B').state,'authenticated');
+  await new Promise(setImmediate); resolve();await pending; assert.equal(a.get('hub-B').state,'authenticated');
 });

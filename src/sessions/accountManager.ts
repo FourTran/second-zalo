@@ -1,10 +1,18 @@
-import {
-  type SessionAdapter,
-  type SessionSnapshot,
-  type SupportedPlatform,
-  type SessionState,
-  UnavailableSessionAdapter,
-} from '../core/sessionAdapter';
+import type { SessionAdapter, SessionSnapshot, SupportedPlatform, SessionState } from '../core/sessionAdapter';
+
+const unavailableAdapter: SessionAdapter = {
+  kind: 'webview',
+  async feasibility(platform) {
+    return {
+      platform, officialLoginSupported: 'unverified',
+      manualMessagingSupported: 'unverified', independentlyIsolatedStorage: 'unverified',
+    };
+  },
+  async connect() { throw new Error('No verified supported personal Zalo session adapter'); },
+  async getStatus(accountId) { return { accountId, state: 'unavailable', lastCheckedAt: new Date().toISOString() }; },
+  async disconnect() {},
+  async destroy() {},
+};
 
 /**
  * Holds PUBLIC account labels only. Never store Zalo credentials, web cookies,
@@ -38,11 +46,19 @@ export class AccountManager {
   private readonly lockedAccounts = new Set<string>();
   private initialized = false;
 
+  private readonly platform: SupportedPlatform;
+  private readonly adapter: SessionAdapter;
+  private readonly metadata: AccountMetadataStore;
+
   constructor(
-    private readonly platform: SupportedPlatform,
-    private readonly adapter: SessionAdapter = new UnavailableSessionAdapter('webview'),
-    private readonly metadata: AccountMetadataStore = new MemoryAccountMetadataStore(),
-  ) {}
+    platform: SupportedPlatform,
+    adapter: SessionAdapter = unavailableAdapter,
+    metadata: AccountMetadataStore = new MemoryAccountMetadataStore(),
+  ) {
+    this.platform = platform;
+    this.adapter = adapter;
+    this.metadata = metadata;
+  }
 
   /** Restoring metadata never restores or asserts Zalo authentication. */
   async initialize(): Promise<void> {
