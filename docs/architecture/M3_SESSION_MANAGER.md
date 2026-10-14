@@ -22,3 +22,6 @@ Must have verified supported Zalo login/manual messaging, platform-specific isol
 
 ## Manual test matrix
 See `docs/feasibility/M2_DEVICE_MATRIX.md`. Until that evidence exists, M3 is **code-complete only for safe offline domain logic**, NOT a completed product milestone.
+
+## CI compatibility fix
+The initial M3 CI run failed because Node's strip-only TypeScript test loader cannot process constructor parameter properties. The source now uses explicit class fields; the async operation-lock test also waits for its controlled promise before resolving. The combined M4 branch validated the updated M3 source with green CI; this documentation update triggers M3's own fresh CI verification.
