@@ -1,11 +1,20 @@
-# Zalo Hub Canonical Status — 2026-10-15
+# Zalo Hub — Canonical Project Status
+Updated: 2026-10-15
 
-M1–M4 source PRs **#1–#4 merged into main**, but product acceptance gates remain unresolved (signed device builds, normal Zalo login/read/reply, independent B/C persistence and cookie isolation).
+**Merged:** PRs #1–#4 (M1–M4 code foundations). Product features still gated by real-world Zalo feasibility.
+**Open in stack:** PR #5 (synthetic events), #6 (synthetic inbox), #7 (security guardrails).
 
-M5 PR #5 — **synthetic-only event contract**, real personal-Zalo event source NOT verified; product gate BLOCKED.
-M6 PR #6 — **local synthetic inbox/routing**, no APNs/FCM or background notifications; product gate BLOCKED.
-M7 and M8 — awaiting safe CI/security/release gate foundations.
+| M | Implementation | Product acceptance |
+|---|---|---|
+| 1 | Foundation / CI code merged | Real device builds DEFERRED |
+| 2 | Browser feasibility diagnostic merged | Normal Zalo login/manual messaging UNVERIFIED |
+| 3 | Account metadata and lifecycle merged | Real B/C isolation & persistence UNVERIFIED |
+| 4 | Account-scoped UI merged | Real manual chats / attachments NOT AVAILABLE |
+| 5 | Strict synthetic events only | Real personal Zalo event source NOT VERIFIED |
+| 6 | Local synthetic inbox / app navigation | No real APNs/FCM or locked-device tests |
+| 7 | Secure metadata and fail-closed feature flags | Threat review/device penetration and reliability tests PENDING |
+| 8 | Pending release gating | No signed builds, app-store approval, beta or production deployment |
 
-**Safety:** Native Zalo and Account A untouched. No passwords, cookies, real personal message ingestion, automation, production push or sends. No release readiness until per-platform feasibility and manual approvals.
+Native Zalo remains untouched; no real Zalo authentication or messaging has been proven; no live push/sends/ingestion. **Do not equate merged code with product-complete milestones.**
 
-Next: CI for PR #6, M7/M8 release security gates; merge in order #5 → #6 → #7 → #8 only after CI passes.
+Next: complete CI, merge PRs #5–#7 sequentially, implement M8 release readiness checklist. All manual prerequisites remain deferred per user direction.

@@ -1,6 +1,11 @@
-# Architecture Decisions (2026-10-15)
-- ADR-001: React Native + Expo for Android/iOS; official native Zalo completely out of scope.
-- ADR-004: Supported-only session adapters; default unavailable.
-- ADR-006: Real message ingestion/sends/push disabled pending explicit verified approval.
-- ADR-016: M5 does not expose personal Zalo events, only synthetic source with bounded deduplication.
-- ADR-017: M6 routes only synthetic notifications to internal account-specific views; no push provider wired, no Zalo chat read receipts.
+# Zalo Hub Architecture Decisions (2026-10-15)
+- ADR-001: React Native + Expo shared iOS/Android code.
+- ADR-002: Official Zalo app and Account A must never be touched.
+- ADR-004: Session-adapter interface, fail-closed default and identity checks.
+- ADR-005: Undocumented personal Zalo APIs, credential/cookie extraction and bypass forbidden.
+- ADR-006: Live message ingestion, sends and push remain disabled without approved proof.
+- ADR-014: M3 account lifecycle protected with per-account locks.
+- ADR-015: M4 manual chat requires real authenticated supported client.
+- ADR-016: M5 synthetic event type is not a real personal Zalo event.
+- ADR-017: M6 local-only synthetic alert inbox; no native Zalo deep link.
+- ADR-018: M7 public metadata allowlist and immutable disabled-production feature flags.
