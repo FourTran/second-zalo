@@ -9,6 +9,7 @@ const root=resolve('web/feasibility');
 const files=[
   ['index.html','text/html; charset=utf-8'],
   ['style.css','text/css; charset=utf-8'],
+  ['login.css','text/css; charset=utf-8'],
   ['logic.mjs','text/javascript; charset=utf-8'],
   ['app.mjs','text/javascript; charset=utf-8'],
 ];
