@@ -60,3 +60,10 @@ Every future thread must read this file and verify current GitHub PR/CI state.
 
 ### Correction — 2026-10-15 (web prototype)
 The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPhone, although Safari/Chrome App Store redirects were already observed. The revised web lab pre-records that user-reported result for Account B and hides the pointless iPhone Copy URL action. Next hypothesis: an explicitly permitted, user-controlled cloud desktop browser session, not yet provisioned or verified. This remains a feasibility prototype, not a working Zalo integration.
+
+## M2.6 — iPhone-only cloud desktop feasibility (2026-10-15)
+- `docs/feasibility/M2_6_PRIVATE_DESKTOP_IPHONE.md`: evaluated Kasm as candidate for a **private, authenticated, persistent** browser desktop operated from iPhone Safari.
+- `src/feasibility/remoteDesktopProof.ts` and domain tests: endpoint validation and fail-closed manual proof checklist. Code-only; not a Zalo session adapter.
+- No VPS billing approval, no cloud VM, no Kasm workspace, no personal Account B login, no B/C isolation testing. **Infrastructure manual prerequisite pending.**
+- Cloudflare static `workers.dev` preview is NOT a persistent desktop. Kasm Cloud Personal ephemeral offering is inadequate for persistence requirement.
+- Issue #10 remains open. Next: owner chooses/provisions suitable private VM; security/policy review before attempting official normal desktop login. Production push/ingestion disabled; native Zalo untouched.

@@ -56,3 +56,6 @@ Read [the web-first test plan](docs/feasibility/WEB_FIRST_TEST_PLAN.md). Nonprod
 The deployed preview can be regenerated offline via `npm run web:build-worker`; only `web/feasibility` assets are served. Production hosting or Zalo integration is not enabled.
 
 Web-first correction: iPhone Safari and Chrome already redirect to App Store; do not repeat the same chat.zalo.me test. The lab now records the known iPhone result and identifies the unverified desktop-session approach as the next experiment.
+
+## iPhone-only Account B: private remote desktop feasibility
+The next M2.6 experiment is a **privately hosted desktop browser accessible through iPhone Safari**, not a mobile user-agent workaround. See [M2.6 private desktop runbook](docs/feasibility/M2_6_PRIVATE_DESKTOP_IPHONE.md). No desktop VM exists yet; normal Zalo login, message access and persistence remain unverified. Avoid sharing credentials or QR codes.
