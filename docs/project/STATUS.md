@@ -60,3 +60,6 @@ Every future thread must read this file and verify current GitHub PR/CI state.
 
 ### Correction — 2026-10-15 (web prototype)
 The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPhone, although Safari/Chrome App Store redirects were already observed. The revised web lab pre-records that user-reported result for Account B and hides the pointless iPhone Copy URL action. Next hypothesis: an explicitly permitted, user-controlled cloud desktop browser session, not yet provisioned or verified. This remains a feasibility prototype, not a working Zalo integration.
+
+## Web-first UX update (2026-10-15)
+The Zalo Hub URL should present **Account B sign-in immediately**, not a device dropdown or manual compatibility questionnaire. The login-first UI is implemented as a static entry screen in a focused PR, with an explicitly **disabled** Sign In control while the authenticated supported remote-browser session is unavailable. No credentials collected and no direct iPhone chat.zalo.me redirection. M2.6 remote desktop proof remains unverified. The previous diagnostic logic remains test-only in source, not the homepage.

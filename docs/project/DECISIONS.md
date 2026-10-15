@@ -13,3 +13,5 @@
 
 - ADR-020: Add separate static mobile-first website for **manual**, anonymized browser feasibility observations. No Zalo iframe, proxy, session sharing, browser fingerprint changes or credentials.
 - ADR-021: Website experiments do not satisfy M2/M3/M5 device/session/event gates and are not automatically deployed.
+
+- ADR-023: Web-first MVP entry opens directly to Account B login-first screen; no diagnostic dropdown on homepage. Sign-in remains disabled until a supported secure remote session exists. No real Zalo credentials collected.
