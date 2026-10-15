@@ -9,3 +9,6 @@
 | R6 | HIGH | Personal information leakage | Metadata only, do not log cookies or message bodies |
 | R7 | HIGH | iOS/Android locked device behavior differs | Signed device test deferred |
 | R8 | HIGH | Synthetic alerts mistaken for real | All demo events explicitly typed synthetic |
+
+| R9 | HIGH | A same-origin test website cannot read chat.zalo.me sessions or messages | No iframe, cookies, proxying or cross-site page inspection; manually reported observations only |
+| R10 | MEDIUM | Public feasibility page mistaken for an authenticated client | Persistent DEMO / NOT CONNECTED labels and no production feature claims |

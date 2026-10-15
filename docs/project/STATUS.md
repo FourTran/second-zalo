@@ -48,3 +48,15 @@ Official native Zalo app and Account A are completely **OUT OF SCOPE**. No nativ
 Do not expand live-message or notification code until critical M2 and M5 feasibility evidence exists. Once user is ready for manual device testing, follow `docs/project/DEVICE_BUILD_TEST_PLAN.md`, `docs/feasibility/M2_DEVICE_MATRIX.md`, and `docs/release/M8_BETA_AND_RELEASE.md`. Log outcomes platform-by-platform; if client or event source is unsupported, record NO-GO/PIVOT rather than a fake complete milestone.
 
 Every future thread must read this file and verify current GitHub PR/CI state.
+
+## Web-first test proposal — PR #13 (2026-10-15)
+- New web/feasibility/ static mobile-first diagnostic. No Expo or Apple Developer account needed to load after separately approved preview hosting.
+- Users manually open the official chat.zalo.me address in their own browser and record **self-reported only** observations by account and device.
+- The website has **no Zalo session**, cross-site API, iframe, notification listener, credentials or cookie access; cannot bypass iOS App Store redirects.
+- Nonproduction Cloudflare Worker preview **uploaded and workers.dev enabled** by API; external page accessibility could not be independently verified because the checking environment has no DNS access. This is a test harness, **not** a substitute for issue #10 supported-client login and issue #11 incoming message source.
+- PR code CI [run #38622258320](https://github.com/FourTran/second-zalo/actions/runs/38622258320) passed including web tests, TypeScript, Expo config, release guard and both mobile JS exports; device-browser verification still pending. iOS/Android website use on physical devices NOT TESTED.
+
+- Preview address: https://zalo-hub-web-feasibility-preview.tranvantu4444.workers.dev/ — public static diagnostic only. No real Zalo login, credential handling, push, APIs or message forwarding.
+
+### Correction — 2026-10-15 (web prototype)
+The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPhone, although Safari/Chrome App Store redirects were already observed. The revised web lab pre-records that user-reported result for Account B and hides the pointless iPhone Copy URL action. Next hypothesis: an explicitly permitted, user-controlled cloud desktop browser session, not yet provisioned or verified. This remains a feasibility prototype, not a working Zalo integration.
