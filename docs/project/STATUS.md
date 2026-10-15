@@ -67,3 +67,5 @@ The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPho
 - No VPS billing approval, no cloud VM, no Kasm workspace, no personal Account B login, no B/C isolation testing. **Infrastructure manual prerequisite pending.**
 - Cloudflare static `workers.dev` preview is NOT a persistent desktop. Kasm Cloud Personal ephemeral offering is inadequate for persistence requirement.
 - Issue #10 remains open. Next: owner chooses/provisions suitable private VM; security/policy review before attempting official normal desktop login. Production push/ingestion disabled; native Zalo untouched.
+## Web login-first screen (PR #15)
+The browser-homepage diagnostic selection is replaced with immediate Account B sign-in entry. Sign-in remains disabled and no real Zalo browser session is connected. Cloudflare preview is not updated by this change. Backend feasibility and user-authorized private desktop hosting still required.

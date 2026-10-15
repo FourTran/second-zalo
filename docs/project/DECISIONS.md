@@ -15,3 +15,4 @@
 - ADR-021: Website experiments do not satisfy M2/M3/M5 device/session/event gates and are not automatically deployed.
 
 - ADR-022: M2.6 experiment uses an operator-owned private persistent desktop environment (Kasm candidate) rather than retrying iPhone chat.zalo.me redirects or pretending the static Cloudflare Worker is a desktop. No VM or real login until owner authorizes hosting and policy/security review.
+- ADR-023: Web MVP entry shows Account B login-first experience without device questionnaire; sign-in remains disabled until verified secure desktop browser session, with no Zalo credentials collected.

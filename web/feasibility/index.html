@@ -1,73 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="light">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none';">
-  <title>Zalo Hub — Web Feasibility Lab</title>
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.mjs"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'none'; img-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none';">
+<title>Zalo Hub — Sign in</title>
+<link rel="stylesheet" href="./login.css">
 </head>
 <body>
-  <main class="page">
-    <header class="top">
-      <div class="brand"><span class="brand-mark" aria-hidden="true">ZH</span><span>Zalo Hub <small>Feasibility Lab</small></span></div>
-      <span class="pill">DEMO · NO ZALO ACCESS</span>
-    </header>
-
-    <section class="hero" aria-labelledby="headline">
-      <p class="eyebrow">WEB-FIRST FEASIBILITY TEST · V1</p>
-      <h1 id="headline">The iPhone browser route is blocked. What's next?</h1>
-      <p>We already observed Safari and Chrome on iPhone redirect to the App Store. <strong>Don't repeat that failed test.</strong> The next candidate is a user-controlled cloud desktop browser, which remains untested and must use normal, permitted Zalo sign-in.</p>
-    </section>
-
-    <div class="layout">
-      <section class="panel" aria-labelledby="test-title">
-        <div class="panel-head"><div><p class="eyebrow">01 / ENVIRONMENT</p><h2 id="test-title">Choose the device you are testing</h2></div><span class="step">1 of 3</span></div>
-        <label class="field-label" for="platform">Device &amp; browser</label>
-        <select id="platform" aria-label="Test device">
-          <option value="iphone-safari">iPhone · Safari</option>
-          <option value="iphone-chrome">iPhone · Chrome</option>
-          <option value="android-chrome">Android · Chrome</option>
-          <option value="desktop-browser">Desktop · Chrome / Edge</option>
-        </select>
-        <p class="hint">Changing platforms resets the observations. Each platform needs its own separate test.</p>
-
-        <div class="panel-head split-top"><div><p class="eyebrow">02 / NEXT FEASIBILITY GATE</p><h2>Test a legitimate desktop-browser session</h2></div><span class="step">2 of 3</span></div>
-        <div class="status"><span class="status-icon" aria-hidden="true">!</span><div><strong>Known iPhone result — blocked</strong><p>Safari and Chrome redirected to the App Store. No need to try chat.zalo.me again on iPhone. A hosted desktop session has NOT been established or verified.</p></div></div>
-        <p class="hint">Next engineering experiment: provision an isolated desktop environment, open the official web client normally, sign in yourself if allowed, test manual messaging and session persistence. Do not collect cookies or automate a restricted client. No remote desktop is connected to this prototype yet.</p>
-        <div class="instructions" id="manual-test-steps">
-          <div><span class="dot">1</span><span>Copy the official web address with the button below.</span></div>
-          <div><span class="dot">2</span><span>Paste it manually into a browser address bar. Do not use an unofficial login website.</span></div>
-          <div><span class="dot">3</span><span>Return here and record what happened for the account you intended to use.</span></div>
-        </div>
-        <div class="urlbox" id="manual-url-box"><code>https://chat.zalo.me/</code><button id="copy-url" type="button" class="button secondary">Copy URL</button></div>
-        <p class="hint" id="manual-test-hint">The link above is available only when testing a genuinely different browser environment (Android or desktop). It is not an iPhone workaround. A browser tab is <strong>not</strong> an isolated account profile.</p>
-        <div id="accounts" class="accounts" aria-live="polite"></div>
-      </section>
-
-      <aside class="panel aside" aria-labelledby="result-title">
-        <div class="panel-head"><div><p class="eyebrow">03 / REPORT</p><h2 id="result-title">Results &amp; next decision</h2></div><span class="step">3 of 3</span></div>
-        <div class="status"><span class="status-icon" aria-hidden="true">!</span><div><strong>Next step: desktop session proof (UNVERIFIED)</strong><p>Recording a manual observation does not authenticate an account in Zalo Hub.</p></div></div>
-        <div class="metrics"><div><strong id="tested-count">0 / 3</strong><small>Account observations</small></div><div><strong>0</strong><small>Verified live sessions</small></div></div>
-        <p class="field-label">Anonymous diagnostic report</p>
-        <textarea id="report" readonly rows="9" aria-label="Diagnostic report"></textarea>
-        <div class="button-row"><button id="copy-report" type="button" class="button primary">Copy report</button><button id="reset" type="button" class="button subtle">Reset</button></div>
-        <p class="hint">No accounts, messages, cookies, passwords, or observations are uploaded or saved. Closing or refreshing the page clears all results.</p>
-        <div class="decision">
-          <strong>What this can prove</strong>
-          <p>iPhone Safari and Chrome redirects are already documented. The meaningful next test is a supported, independent desktop-browser session. Notifications still depend on a permitted personal-message event source.</p>
-        </div>
-      </aside>
-    </div>
-    <footer>
-      <span>Second Zalo · Cross-platform research prototype</span>
-      <span>Account A / native Zalo: completely outside scope</span>
-    </footer>
-    <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
-  </main>
+<main class="shell">
+  <header class="brand"><span class="logo" aria-hidden="true">ZH</span><strong>Zalo Hub</strong></header>
+  <section class="panel" aria-labelledby="title">
+    <p class="eyebrow">WELCOME TO ZALO HUB</p>
+    <h1 id="title">Your Zalo accounts,<br>one place.</h1>
+    <p class="intro">Use additional personal Zalo accounts without changing the official Zalo app.</p>
+    <div class="account"><span class="avatar">B</span><div><strong>Account B</strong><small>Not connected</small></div></div>
+    <button disabled type="button" aria-describedby="login-status">Sign in to Account B <span aria-hidden="true">→</span></button>
+    <p class="status" id="login-status" role="status">Login is not available yet. A supported, secure browser session must be connected before you can sign in.</p>
+    <p class="subnote">No password or Zalo login details are collected here. Account A and the official Zalo app remain untouched.</p>
+  </section>
+  <footer>Private prototype · Real Zalo integration not yet connected</footer>
+</main>
 </body>
 </html>
