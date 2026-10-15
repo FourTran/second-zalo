@@ -61,5 +61,11 @@ Every future thread must read this file and verify current GitHub PR/CI state.
 ### Correction — 2026-10-15 (web prototype)
 The original web lab unnecessarily asked the user to repeat chat.zalo.me on iPhone, although Safari/Chrome App Store redirects were already observed. The revised web lab pre-records that user-reported result for Account B and hides the pointless iPhone Copy URL action. Next hypothesis: an explicitly permitted, user-controlled cloud desktop browser session, not yet provisioned or verified. This remains a feasibility prototype, not a working Zalo integration.
 
-## Web-first UX update (2026-10-15)
-The Zalo Hub URL should present **Account B sign-in immediately**, not a device dropdown or manual compatibility questionnaire. The login-first UI is implemented as a static entry screen in a focused PR, with an explicitly **disabled** Sign In control while the authenticated supported remote-browser session is unavailable. No credentials collected and no direct iPhone chat.zalo.me redirection. M2.6 remote desktop proof remains unverified. The previous diagnostic logic remains test-only in source, not the homepage.
+## M2.6 — iPhone-only cloud desktop feasibility (2026-10-15)
+- `docs/feasibility/M2_6_PRIVATE_DESKTOP_IPHONE.md`: evaluated Kasm as candidate for a **private, authenticated, persistent** browser desktop operated from iPhone Safari.
+- `src/feasibility/remoteDesktopProof.ts` and domain tests: endpoint validation and fail-closed manual proof checklist. Code-only; not a Zalo session adapter.
+- No VPS billing approval, no cloud VM, no Kasm workspace, no personal Account B login, no B/C isolation testing. **Infrastructure manual prerequisite pending.**
+- Cloudflare static `workers.dev` preview is NOT a persistent desktop. Kasm Cloud Personal ephemeral offering is inadequate for persistence requirement.
+- Issue #10 remains open. Next: owner chooses/provisions suitable private VM; security/policy review before attempting official normal desktop login. Production push/ingestion disabled; native Zalo untouched.
+## Web login-first screen (PR #15)
+The browser-homepage diagnostic selection is replaced with immediate Account B sign-in entry. Sign-in remains disabled and no real Zalo browser session is connected. Cloudflare preview is not updated by this change. Backend feasibility and user-authorized private desktop hosting still required.

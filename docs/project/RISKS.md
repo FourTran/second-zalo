@@ -12,3 +12,7 @@
 
 | R9 | HIGH | A same-origin test website cannot read chat.zalo.me sessions or messages | No iframe, cookies, proxying or cross-site page inspection; manually reported observations only |
 | R10 | MEDIUM | Public feasibility page mistaken for an authenticated client | Persistent DEMO / NOT CONNECTED labels and no production feature claims |
+
+| R11 | CRITICAL | Remote desktop operator/provider privileged access to private browser session and chats | Dedicated VM, MFA, trusted TLS, access isolation, no logging of Zalo data; do not log in before controls reviewed |
+| R12 | HIGH | Zalo cloud desktop use might be unsupported or require native app confirmation | Review current official policy and normal login modes; STOP if native app authorization or bypass is needed |
+| R13 | HIGH | Kasm Cloud Personal deletes workspaces / session resets | Do not use ephemeral provider for promised persistent B/C sessions; use private host persistent profiles and actual restart tests |
